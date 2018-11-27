@@ -109,6 +109,7 @@ resource "azurerm_virtual_machine_scale_set" "consul" {
     primary = true
 
     ip_configuration {
+      primary = true
       name = "ConsulIPConfiguration"
       subnet_id = "${var.subnet_id}"
     }
@@ -171,6 +172,7 @@ resource "azurerm_virtual_machine_scale_set" "consul_with_load_balancer" {
     primary = true
 
     ip_configuration {
+      primary = true
       name = "ConsulIPConfiguration"
       subnet_id = "${var.subnet_id}"
       load_balancer_backend_address_pool_ids = [
