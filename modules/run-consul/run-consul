@@ -199,7 +199,7 @@ function generate_consul_config {
     log_warn "Can not determine another scale set member. Will not automatically try to form a cluster based on Azure scale set."
   else
     retry_join_json=$(cat <<EOF
-"retry_join": [$peer_ip],
+"retry_join": ["provider=azure resource_group=$instance_resource_group vm_scale_set=$scale_set_name tenant_id=$tenant_id client_id=$client_id subscription_id=$subscription_id secret_access_key=$secret_access_key"],
 EOF
 )
   fi
